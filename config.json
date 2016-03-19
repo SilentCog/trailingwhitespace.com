@@ -5,6 +5,7 @@
     "owner": "mimiflynn",
     "description": "Thoughts regarding the internet"
   },
+  "port": 4000,
   "plugins": [
     "./plugins/paginator.coffee"
   ],

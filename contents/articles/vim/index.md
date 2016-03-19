@@ -9,6 +9,10 @@ Lately, I decided to switch from trusty old Sublime Text 3 to Vim. Why?
 
 <span class="more"></span>
 
+## General
+
+`:e!` reload file
+
 ## Layout
 
 `ctrl+w, v` opens new panel vertically
