@@ -11,6 +11,7 @@ Raspberry Pi 2
 Hifiberry Digi+
 SD Card
 Anker 5 port USB charger
+Power cord switch
 DAC
 
 
