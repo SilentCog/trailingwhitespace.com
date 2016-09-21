@@ -1,7 +1,7 @@
 ---
 title: Ubuntu on MacBook Air 4,2
 author: mimiflynn
-date: 16-09-18
+date: 2016-09-18
 template: article.jade
 ---
 
