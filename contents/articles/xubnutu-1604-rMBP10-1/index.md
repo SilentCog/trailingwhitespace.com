@@ -35,3 +35,6 @@ sudo apt-get install xubuntu-restricted-extras
 sudo apt-get install gksu leafpad synaptic gdebi pavucontrol
 ```
 
+## Development
+
+https://nodejs.org/en/download/package-manager/
