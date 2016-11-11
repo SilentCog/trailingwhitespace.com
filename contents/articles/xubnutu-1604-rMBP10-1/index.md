@@ -38,3 +38,10 @@ sudo apt-get install gksu leafpad synaptic gdebi pavucontrol
 ## Development
 
 https://nodejs.org/en/download/package-manager/
+
+sudo apt install vim-gtk
+
+## tweaks
+
+https://gist.github.com/mimiflynn/9144157
+
