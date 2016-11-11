@@ -29,6 +29,8 @@ https://help.ubuntu.com/community/PowerManagement/ReducedPower
 
 https://freedompenguin.com/articles/how-to/how-to-optimize-ubuntu-for-speed/
 
+https://medium.com/phils-thought-bubble-of-recent-stuff/ubuntu-14-10-running-on-my-macbook-18991a697ae0#.iwlgafh3j
+
 ```
 sudo add-apt-repository ppa:rebuntu16/other-stuff
 sudo apt-get update
