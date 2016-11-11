@@ -23,10 +23,14 @@ https://sites.google.com/site/easylinuxtipsproject/fatalmistakes
 
 https://sites.google.com/site/easylinuxtipsproject/bugs
 
+https://sites.google.com/site/easylinuxtipsproject/ssd
+
 https://help.ubuntu.com/community/PowerManagement/ReducedPower
 
+https://freedompenguin.com/articles/how-to/how-to-optimize-ubuntu-for-speed/
+
 ```
-sudo add-apt-repository ppa:rebuntu16/other-stuff 
+sudo add-apt-repository ppa:rebuntu16/other-stuff
 sudo apt-get update
 sudo apt-get install xfce-theme-manager
 
