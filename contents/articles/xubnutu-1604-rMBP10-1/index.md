@@ -7,6 +7,8 @@ template: article.jade
 
 `sudo apt install macfanctld`
 
+`sudo apt install tlp`
+
 `sudo apt install powertop`
 
 turn on broadcom drivers - http://sourcedigit.com/19519-how-to-enable-wifi-in-ubuntu-16-04/
@@ -38,6 +40,14 @@ sudo apt-get install xubuntu-restricted-extras
 
 sudo apt-get install gksu leafpad synaptic gdebi pavucontrol
 ```
+
+## Support ExFat
+
+`sudo apt-get install exfat-utils exfat-fuse`
+
+## Steam
+
+http://askubuntu.com/questions/771032/steam-not-opening-in-ubuntu-16-04-lts
 
 ## Development
 
