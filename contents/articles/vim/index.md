@@ -5,7 +5,7 @@ date: 2016-02-25
 template: article.jade
 ---
 
-Lately, I decided to switch from trusty old Sublime Text 3 to Vim. Why?
+Lately, I decided to switch from trusty old Sublime Text 3 to Vim and published my Vim settings on my [Github](https://github.com/mimiflynn/dotVim). The following are the commands I've found I used the most.
 
 <span class="more"></span>
 

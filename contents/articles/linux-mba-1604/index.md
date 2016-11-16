@@ -5,9 +5,13 @@ date: 2016-09-18
 template: article.jade
 ---
 
-I was recently gifted a 13" MacBook Air 4,2 and decided to install Ubuntu on it, since Mac OS X was running a bit sluggish... and I love a challenge.
+I was recently gifted a 13" MacBook Air 4,2 that I decided to install Ubuntu on, since Mac OS X was running a bit sluggish... and I love a challenge.
+
+<span class="more"></span>
 
 https://help.ubuntu.com/community/MacBookAir4-2
+
+`sudo apt install macfanctld`
 
 Suspend issue - http://askubuntu.com/questions/763085/with-ubuntu-16-04-laptop-doesnt-suspend-when-lid-is-closed
 

@@ -1,7 +1,7 @@
 ---
 title: Xubuntu on rMBP 10,1
 author: mimiflynn
-date: 2016-09-18
+date: 2016-11-15
 template: article.jade
 ---
 
