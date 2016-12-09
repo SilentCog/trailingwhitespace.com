@@ -63,3 +63,7 @@ sudo apt install vim-gtk
 
 https://gist.github.com/mimiflynn/9144157
 
+## USB Audio
+
+https://ubuntuforums.org/showthread.php?t=2248480
+
