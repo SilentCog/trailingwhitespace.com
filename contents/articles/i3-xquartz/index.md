@@ -24,6 +24,11 @@ touch ~/.xinitrc.d/99-wm.sh
 chmod +x ~/.xinitrc.d/99-wm.sh
 ```
 
+```
+#!/bin/sh
+exec /usr/local/bin/i3
+```
+
 start xquartz
 
 Configure as you would any other way.
