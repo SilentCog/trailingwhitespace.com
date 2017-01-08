@@ -1,13 +1,29 @@
-# installing i3 on macOs
+---
+title: macOS - i3 on XQuartz
+author: mimiflynn
+date: 2017-01-07
+template: article.jade
+---
 
-install xquartz
-install homebrew
+## Installing i3 on macOS
 
-brew install i3
+### Dependencies
 
+install xquartz - https://www.xquartz.org
+install homebrew - https://brew.sh
+
+### Install i3
+`brew install i3`
+
+### Configure i3 as default window manager in X11
+
+```
 mkdir ~/.xinitrc.d/
 touch ~/.xinitrc.d/99-wm.sh
 
 chmod +x ~/.xinitrc.d/99-wm.sh
+```
 
 start xquartz
+
+Configure as you would any other way.
