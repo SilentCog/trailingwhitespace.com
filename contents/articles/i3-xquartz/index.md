@@ -13,7 +13,7 @@ template: article.jade
 
 [XQuartz](https://www.xquartz.org)
 
-(Homebrew)[https://brew.sh]
+[Homebrew](https://brew.sh)
 
 ### Install i3
 
@@ -42,4 +42,4 @@ start xQuartz and you will see the following dialog appear from `i3-config-wizar
 
 ![i3 Configuration Wizard](images/i3-config-wizard-2-big.png)
 
-Configure as you would any other way.
+Now you can configure i3 and your Xquartz apps as you would normally.
