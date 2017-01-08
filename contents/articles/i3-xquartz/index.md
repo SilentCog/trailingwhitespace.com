@@ -5,7 +5,7 @@ date: 2017-01-07
 template: article.jade
 ---
 
-![i3 Configuration Wizard](images/)i3-config-wizard-2-big-select.png)
+![i3 Configuration Wizard](images/i3-config-wizard-2-big-select.png)
 
 ## Installing i3 on macOS
 
@@ -33,8 +33,8 @@ exec /usr/local/bin/i3
 
 start xquartz
 
-![i3 Configuration Wizard](images/)i3-config-wizard-1.png)
+![i3 Configuration Wizard](images/i3-config-wizard-1.png)
 
-![i3 Configuration Wizard](images/)i3-config-wizard-2-big.png)
+![i3 Configuration Wizard](images/i3-config-wizard-2-big.png)
 
 Configure as you would any other way.
