@@ -9,38 +9,41 @@ template: article.jade
 
 # RPi 3 Camera
 
-installed latest raspbian
+Install latest raspbian
 
-opened ssh port and camera
+## Raspberry Pi 3 Config
 
-changed host name to rpi3Cam
+Go to the Pi menu and click on settings and then go to config
 
-changed default password
+Open ssh and camera services
 
-set up router to reserve ip address via DHCP
+Change host name to rpi3Cam
 
-SSH into RPi and remove unneeded software
+Now that SSH is active you must change the default password with `passwd`
+
+## Set Time on Pi
+
+```
+sudo dpkg-reconfigure tzdata
+```
+
+## Router Settings
+
+Set up router to reserve ip address via DHCP for the Pi in order to use the same IP address internally for SSH and HTTP access.
+
+## Raspberry Pi Software
+
+SSH into RPi and remove unneeded software. I referenced a [random BB thread](https://project.altservice.com/issues/418).
 
 ```
 sudo apt-get remove --purge wolfram-engine
 
 sudo apt-get remove --purge libreoffice*
 
+sudo apt-get remove --purge libreoffice* wolfram-engine scratch squeak-plugins-scratch squeak-vm penguinspuzzle dillo sonic-pi idle idle3 netsurf-gtk netsurf-common
+
 sudo apt-get autoremove
 ```
-
-Set Time
-
-```
-sudo dpkg-reconfigure tzdata
-```
-
-
-sudo apt-get remove --purge wolfram-engine penguinspuzzle scratch dillo squeak-vm squeak-plugins-scratch sonic-pi idle idle3 netsurf-gtk netsurf-common
-
-apt-get --purge gnome-* lxde* lightdm* xserver* desktop-* smbclient lxappearance lxinput lxmenu-data lxpanel lxpolkit lxrandr lxsession lxsession-edit lxshortcut lxtask lxterminal leafpad menu menu-xdg xpdf xkb-data xinit xfonts-utils xfonts-encodings xdg-utils xauth xarchiver x11-utils x11-common
-
-https://project.altservice.com/issues/418
 
 Install Vim
 ```
@@ -57,19 +60,50 @@ change ssh port to 20002
 sudo vim /etc/ssh/sshd_config
 ```
 
-change http port to 2002
+## NGINX
+
 ```
-sudo vim /etc/nginx/site-available/default
+cd /etc/nginx/sites-available
+sudo vim default
 ```
 
-pull repo into ~/Projects as `Photos` and cd into it
+Use the below configuration:
 
+```
+server {
+	listen 2002 default_server;
+	listen [::]:2002 default_server;
+
+	index index.html index.htm index.nginx-debian.html;
+
+	server_name localhost;
+
+	# Set up proxy for Flack app
+	location / {
+		proxy_set_header X-Real-IP $remote_addr;
+		proxy_set_header X-Forward-Fo $proxy_add_x_forwarded_for;
+		proxy_set_header Host $http_host;
+		proxy_set_header X-Nginx-Proxy true;
+		proxy_pass http://127.0.0.1:5000;
+		proxy_redirect off;
+	}
+}
+```
+
+
+
+
+
+
+
+## Install and setup Flask web camera interface
+
+Clone the repo into ~/Projects as `Photos` and cd into it
 ```
 mkdir ~/Projects && cd ~/Projects
 git clone https://github.com/mimiflynn/rpi-timelapse.git Photos
 cd Photos
-```
-
-```
 mkdir {images,gifs}
 ```
+
+Start the app with `nohup python3 app.py &' and go to the server IP address in your browser.
