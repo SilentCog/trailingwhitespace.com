@@ -7,9 +7,15 @@ template: article.jade
 
 ![fog](images/result.gif)
 
-# RPi 3 Camera
+In an attempt to learn Python, I created a Flask app to control my Raspberry Pi 3 and Pi Camera from my web browser to create time lapses and single photos.
 
-Install latest raspbian
+[Check out the code on GitHub](https://github.com/mimiflynn/rpi-timelapse).
+
+## RPi 3 Camera
+
+Attach camera to Pi via ribbon cable and set it up somewhere nice.
+
+Install latest Raspbian (I used noobs to do this, so easy).
 
 ## Raspberry Pi 3 Config
 
@@ -89,12 +95,6 @@ server {
 	}
 }
 ```
-
-
-
-
-
-
 
 ## Install and setup Flask web camera interface
 
