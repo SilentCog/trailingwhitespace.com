@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>Raspberry Pi 3 Camera and Flask - trailingWhitespace**____
+    </title>
+    <link rel="alternate" href="http://trailingwhitespace.com/feed.xml" type="application/rss+xml" title="Thoughts regarding the internet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>Raspberry Pi 3 Camera and Flask</h1>
+        <p class="author">Written by <span class="author"><a href="mailto:mimi@mimiflynn.com">Mimi Flynn</a></span>
+        </p>
+        <p class="date"><span>03 April 2017</span></p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p><img src="/articles/rpi-camera-flask/images/result.gif" alt="fog"></p>
+<p>In an attempt to learn Python, I created a Flask app to control my Raspberry Pi 3 and Pi Camera from my web browser to create time lapses and single&nbsp;photos.</p>
+<p><a href="https://github.com/mimiflynn/rpi-timelapse">Check out the code on GitHub</a>.</p>
+<h2 id="rpi-3-camera">RPi 3&nbsp;Camera</h2>
+<p>Attach camera to Pi via ribbon cable and set it up somewhere&nbsp;nice.</p>
+<p>Install latest Raspbian (I used noobs to do this, so&nbsp;easy).</p>
+<h2 id="raspberry-pi-3-config">Raspberry Pi 3&nbsp;Config</h2>
+<p>Go to the Pi menu and click on settings and then go to&nbsp;config</p>
+<p>Open ssh and camera&nbsp;services</p>
+<p>Change host name to&nbsp;rpi3Cam</p>
+<p>Now that <span class="caps">SSH</span> is active you must change the default password with <code>passwd</code></p>
+<h2 id="set-time-on-pi">Set Time on&nbsp;Pi</h2>
+<pre><code>sudo dpkg-reconfigure tzdata
+</code></pre><h2 id="router-settings">Router&nbsp;Settings</h2>
+<p>Set up router to reserve ip address via <span class="caps">DHCP</span> for the Pi in order to use the same IP address internally for SSH and HTTP&nbsp;access.</p>
+<h2 id="raspberry-pi-software">Raspberry Pi&nbsp;Software</h2>
+<p><span class="caps">SSH</span> into RPi and remove unneeded software. I referenced a <a href="https://project.altservice.com/issues/418">random <span class="caps">BB</span> thread</a>.</p>
+<pre><code>sudo apt-get remove --purge wolfram-engine
+
+sudo apt-get remove --purge libreoffice*
+
+sudo apt-get remove --purge libreoffice* wolfram-engine scratch squeak-plugins-scratch squeak-vm penguinspuzzle dillo sonic-pi idle idle3 netsurf-gtk netsurf-common
+
+sudo apt-get autoremove
+</code></pre><p>Install&nbsp;Vim</p>
+<pre><code>sudo apt install vim
+</code></pre><p>Install&nbsp;<span class="caps">NGINX</span></p>
+<pre><code>sudo apt install nginx
+</code></pre><p>change ssh port to&nbsp;20002</p>
+<pre><code>sudo vim /etc/ssh/sshd_config
+</code></pre><h2 id="nginx"><span class="caps">NGINX</span></h2>
+<pre><code>cd /etc/nginx/sites-available
+sudo vim default
+</code></pre><p>Use the below&nbsp;configuration:</p>
+<pre><code>server {
+    listen 2002 default_server;
+    listen [::]:2002 default_server;
+
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name localhost;
+
+    # Set up proxy for Flack app
+    location / {
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forward-Fo $proxy_add_x_forwarded_for;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Nginx-Proxy true;
+        proxy_pass http://127.0.0.1:5000;
+        proxy_redirect off;
+    }
+}
+</code></pre><h2 id="install-and-setup-flask-web-camera-interface">Install and setup Flask web camera&nbsp;interface</h2>
+<p>Clone the repo into ~/Projects as <code>Photos</code> and cd into&nbsp;it</p>
+<pre><code>mkdir ~/Projects &amp;&amp; cd ~/Projects
+git clone https://github.com/mimiflynn/rpi-timelapse.git Photos
+cd Photos
+mkdir {images,gifs}
+</code></pre><p>Start the app with `nohup python3 app.py &amp;’ and go to the server <span class="caps">IP</span> address in your&nbsp;browser.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« trailingWhitespace**____</a></div>
+        <section class="about"><p>This blog is brought to you by <a href="http://github.com/SilentCog">SilentCog</a>, a group of software engineers that like to work even in their spare time.</p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2017 mimiflynn &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/ga.js"></script>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/prism.js"></script>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/game.js"></script>
+  </body>
+</html>

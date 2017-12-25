@@ -1,18 +1,17 @@
 {
-  "name": "iwaspromisedcookies",
-  "description": "thoughts regarding the internet",
+  "name": "trailingwhitespace",
+  "description": "tech blog for of the tinkerers at silentcog",
   "author": "mimiflynn",
-  "version": "0.1.2",
-  "private": true,
+  "version": "0.2.0",
+  "private": "true",
   "dependencies": {
-    "moment": "2.3.1",
-    "underscore": "1.4.4",
-    "typogr": "0.5.2",
-    "wintersmith": "2.0.10",
-    "wintersmith-data-json": "0.0.5"
+    "moment": "^2.20.1",
+    "underscore": "1.4.x",
+    "typogr": "0.5.x"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/mimiflynn/iwaspromisedcookies.com.git"
+  "scripts": {
+    "clean": "rm -rf docs",
+    "dev": "wintersmith preview",
+    "build": "npm run clean && wintersmith build && mv build docs && cp CNAME docs/CNAME"
   }
 }

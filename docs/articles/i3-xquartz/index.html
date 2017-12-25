@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width">
+    <title>macOS - i3 on XQuartz - trailingWhitespace**____
+    </title>
+    <link rel="alternate" href="http://trailingwhitespace.com/feed.xml" type="application/rss+xml" title="Thoughts regarding the internet">
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic|Anonymous+Pro:400,700,400italic,700italic|Merriweather:400,700,300">
+    <link rel="stylesheet" href="/css/prism.css">
+    <link rel="stylesheet" href="/css/main.css">
+  </head>
+  <body class="article-detail">
+    <header class="header">
+      <div class="content-wrap">
+        <h1>macOS - i3 on XQuartz</h1>
+        <p class="author">Written by <span class="author"><a href="mailto:mimi@mimiflynn.com">Mimi Flynn</a></span>
+        </p>
+        <p class="date"><span>07 January 2017</span></p>
+      </div>
+    </header>
+    <div id="content">
+      <div class="content-wrap">
+        <article class="article">
+          <section class="content"><p><img src="/articles/i3-xquartz/images/i3-config-wizard-2-big-select.png" alt="i3 Configuration Wizard"></p>
+<h2 id="installing-i3-on-macos">Installing i3 on&nbsp;macOS</h2>
+<h3 id="dependencies">Dependencies</h3>
+<p><a href="https://www.xquartz.org">XQuartz</a></p>
+<p><a href="https://brew.sh">Homebrew</a></p>
+<h3 id="install-i3">Install&nbsp;i3</h3>
+<p><code>brew install i3</code></p>
+<h3 id="configure-i3-as-default-window-manager-in-xquartz">Configure i3 as default window manager in&nbsp;XQuartz</h3>
+<pre><code>mkdir ~/.xinitrc.d/
+touch ~/.xinitrc.d/99-wm.sh
+
+chmod +x ~/.xinitrc.d/99-wm.sh
+</code></pre><p>Open <code>99-wm.sh</code> in your favorite text editor and&nbsp;add:</p>
+<pre><code>#!/bin/sh
+exec /usr/local/bin/i3
+</code></pre><p><img src="/articles/i3-xquartz/images/start-xquartz.png" alt="Start XQuartz"></p>
+<p>start xQuartz and you will see the following dialog appear from <code>i3-config-wizard</code> that runs at first start of&nbsp;i3.</p>
+<p><img src="/articles/i3-xquartz/images/i3-config-wizard-1.png" alt="i3 Configuration Wizard"></p>
+<p><img src="/articles/i3-xquartz/images/i3-config-wizard-2-big.png" alt="i3 Configuration Wizard"></p>
+<p>Now you can configure i3 and your Xquartz apps as you would&nbsp;normally.</p>
+</section>
+        </article>
+      </div>
+    </div>
+    <footer>
+      <div class="content-wrap">
+        <div class="nav"><a href="/">« trailingWhitespace**____</a></div>
+        <section class="about"><p>This blog is brought to you by <a href="http://github.com/SilentCog">SilentCog</a>, a group of software engineers that like to work even in their spare time.</p>
+
+        </section>
+        <section class="copy">
+          <p>&copy; 2017 mimiflynn &mdash; powered by&nbsp;<a href="https://github.com/jnordberg/wintersmith">Wintersmith</a>
+          </p>
+        </section>
+      </div>
+    </footer>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/ga.js"></script>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/prism.js"></script>
+    <script type="application/javascript" src="http://trailingwhitespace.com/js/game.js"></script>
+  </body>
+</html>
